@@ -1,4 +1,4 @@
-﻿/**
+/*
  * @author Gianni N. Di Pietro
  * @version 1.0
  */
@@ -11,14 +11,14 @@ public class LambdaTest
 
         for (int i = 0; i < nachricht.length(); i++)
         {
-            meineListe.setze(Liste.Pos.AM_ENDE);
-            meineListe.fügeEin(nachricht.charAt(i), Liste.Pos.NACH_CURSOR);
+            meineListe.setze(Pos.AM_ENDE);
+            meineListe.fügeEin(nachricht.charAt(i), Pos.NACH_CURSOR);
         }
-
+        final String res;
         System.out.println("-- Ausgabe mit Lambda-Ausdruck --");
-        meineListe.forEach(/* toDo */);  // forEach ist als default-Methode im Interface 'Iterable' definiert
+        meineListe.forEach(z->System.out.println(z));  // forEach ist als default-Methode im Interface 'Iterable' definiert
 
         System.out.println("-- Ausgabe mit Methoden-Referenz --");
-        meineListe.forEach(/* toDo */);
+        meineListe.forEach(System.out::println);
     }
 }
