@@ -25,11 +25,13 @@ public class StackTest
         assert stack.peek().equals(string1);
         System.out.println("(4) peek(push(s, x)) = x: " + stack.peek() + " / " + string1);
 
-        stack.push("bb").push("cc");
+        stack.push("bb");
+        stack.push("cc");
 
       /* (5) pop(push(s, x)) = s */
         String string2 = stack.toString();
-        stack.push("xx").pop();
+        stack.push("xx");
+        stack.pop();
         String string3 = stack.toString();
         assert string2.equals(string3);
         System.out.println("(5) pop(push(s, x)) = s: " + string2 + " / " + string3);

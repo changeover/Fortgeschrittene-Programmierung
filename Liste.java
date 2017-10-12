@@ -69,7 +69,7 @@ public class Liste <T> implements Iterable
       if (anfang != null)
       {
          cursor = anfang;
-         while (cursor != null && cursor.inhalt != t)
+         while (cursor != null && !cursor.inhalt.equals(t))
             cursor = cursor.next;
       }
       return this;

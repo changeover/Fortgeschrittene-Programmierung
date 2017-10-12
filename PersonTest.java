@@ -14,12 +14,12 @@ public class PersonTest
 
         Liste<Person> meineListe = new Liste<>();
         meineListe
-                .setze(Liste.Pos.AM_ANFANG)
-                .fügeEin(p2, Liste.Pos.VOR_CURSOR)
+                .setze(Pos.AM_ANFANG)
+                .fügeEin(p2, Pos.VOR_CURSOR)
                 .finde(person)
-                .fügeEin(p1, Liste.Pos.VOR_CURSOR)
+                .fügeEin(p1, Pos.VOR_CURSOR)
                 .finde(person)
-                .fügeEin(p3, Liste.Pos.NACH_CURSOR);
+                .fügeEin(p3, Pos.NACH_CURSOR);
 
         System.out.println(meineListe);
     }
