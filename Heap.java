@@ -1,17 +1,18 @@
-﻿public class Heap
+import java.lang.reflect.Array;
+
+public class Heap <T extends Comparable<T>>
 {
-   private int[] heap;
+   private T[] heap;
    private int n;
-   
-   public Heap(int n)
+   public Heap(Class<T> tClass,int n)
    {
-      heap = new int[n+1];
+      heap = (T[])Array.newInstance(tClass,n+1);
       this.n = n;
    }
 
    private void swap(int i, int j)
    {
-      int tmp = heap[i]; heap[i] = heap[j]; heap[j] = tmp;
+      T tmp = heap[i]; heap[i] = heap[j]; heap[j] = tmp;
    }
 
    private void restore (int L, int R)
@@ -21,10 +22,10 @@
 
       while (i <= R/2)
       {
-         if ((2*i < R) && (heap[2*i+1] < heap[2*i]))
+         if ((2*i < R) && (heap[2*i+1].compareTo(heap[2*i]) < 0))
             j = 2*i+1;
          else j = 2*i;
-         if (heap[j] < heap[i])
+         if (heap[j].compareTo(heap[i]) < 0)
          {
             swap(i, j);
             i = j;
@@ -32,15 +33,17 @@
          else i = R;
       }
    }
-   
+
    public void populate()
    {
       for (int i = 1; i <= n; i++)
       {
-         heap[i] = (int)(100.0*Math.random());
+         //this is ugly....
+         Object o = (int)(100.0*Math.random());
+         heap[i] = (T)o;
       }
    }
-   
+
    public void convert()
    {
       for (int i = n/2; i >= 1; i--)
