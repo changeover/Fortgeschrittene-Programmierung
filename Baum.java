@@ -37,8 +37,18 @@ class Baum<T>
         Knoten<T> knoten = k;
 
         q.enqueue(knoten);
+        while(!q.empty()){
+            knoten = q.front();
+            levelOrderAktion.accept(knoten.inhalt);
+            if(knoten.left != null){
+                q.enqueue(knoten.left);
+            }
+            if(knoten.right != null){
+                q.enqueue(knoten.right);
+            }
+            q.dequeue();
+        }
 
-        // ToDo: Level-Order Traversierung implementieren
     }
 
     private void traversiereEuler(Knoten<T> knoten)
